@@ -222,6 +222,41 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.15; }
 .profile-review > p strong { color: var(--navy); font-size: .75rem; }
 .profile-review > p span { color: var(--muted); font-size: .65rem; }
 .profile-bottom-cta { margin-top: 1.5rem; }
+.consultation-section { background: #efede7; }
+.consultation-layout { display: grid; gap: 2rem; }
+.consultation-intro { max-width: 32rem; }
+.consultation-intro h2 { margin-bottom: .85rem; color: var(--navy); font-size: clamp(2.2rem, 8vw, 3.5rem); letter-spacing: -.035em; }
+.consultation-intro h2 em { color: #a58239; font-weight: 400; }
+.consultation-intro > p:not(.eyebrow) { color: var(--muted); font-size: .88rem; }
+.consultation-intro > p a { color: var(--navy); font-weight: 600; }
+.consultation-promise { display: flex; gap: .75rem; margin-top: 1.35rem; padding: 1rem; border-left: 2px solid var(--gold); background: rgb(255 255 255 / 62%); }
+.consultation-promise > span { color: #a58239; }
+.consultation-promise p { margin: 0; color: var(--muted); font-size: .72rem; line-height: 1.6; }
+.consultation-promise strong { color: var(--navy); }
+.office-detail { margin-top: 1.6rem; }
+.office-detail .eyebrow { margin-bottom: .35rem; font-size: .61rem; }
+.office-detail p { margin-bottom: .35rem; color: var(--muted); font-size: .76rem; }
+.consultation-form { min-width: 0; padding: 1.2rem; background: var(--white); box-shadow: 0 12px 35px rgb(11 31 58 / 5%); }
+.form-grid { display: grid; grid-template-columns: 1fr; gap: .9rem; }
+.form-field { min-width: 0; }
+.form-field label { display: block; margin-bottom: .35rem; color: var(--navy); font-size: .72rem; font-weight: 600; }
+.form-field label > span:first-child { color: #a14c3e; }
+.optional-label { margin-left: .35rem; color: var(--muted); font-size: .62rem; font-weight: 400; }
+.form-field input, .form-field select, .form-field textarea { width: 100%; min-height: 2.9rem; padding: .7rem .75rem; border: 1px solid #d9d5cd; border-radius: 0; color: var(--ink); background: #fff; font: 400 .8rem/1.5 var(--sans); }
+.form-field textarea { min-height: 7rem; resize: vertical; }
+.form-field input::placeholder, .form-field textarea::placeholder { color: #8a9097; }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: #94712d; outline: 2px solid rgb(201 162 75 / 26%); outline-offset: 1px; }
+.form-field [aria-invalid="true"] { border-color: #a64c3c; }
+.field-error { display: block; margin-top: .25rem; color: #a13e31; font-size: .68rem; line-height: 1.4; }
+.field-error:empty { display: none; }
+.form-submit { width: 100%; margin-top: 1rem; cursor: pointer; }
+.form-submit:disabled { opacity: .7; cursor: wait; }
+.form-status { margin: .8rem 0 0; padding: .7rem; font-size: .76rem; }
+.form-status:empty { display: none; }
+.form-status.is-demo { color: #614d22; background: #f7f0dc; }
+.form-status.is-success { color: #1d603d; background: #e7f2eb; }
+.form-status.is-error { color: #8b3025; background: #f8e9e6; }
+.form-privacy { margin: .75rem 0 0; color: var(--muted); font-size: .64rem; line-height: 1.55; }
 .site-footer { padding: 3.2rem 0 1.5rem; color: rgb(255 255 255 / 75%); background: var(--navy); }
 .footer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1.25rem; padding-bottom: 2.3rem; }
 .footer-grid h2 { margin-bottom: .7rem; color: var(--gold-light); font: 600 .67rem var(--sans); letter-spacing: .16em; text-transform: uppercase; }
@@ -263,6 +298,11 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.15; }
   .contact-card { position: sticky; top: 6.5rem; padding: 1.6rem; }
   .profile-review-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
   .profile-review { padding: 1.35rem; }
+  .consultation-layout { grid-template-columns: minmax(13rem, .75fr) minmax(0, 1.25fr); align-items: start; gap: 3rem; }
+  .consultation-form { padding: 1.6rem; }
+  .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .form-field-wide { grid-column: 1 / -1; }
+  .form-submit { width: auto; min-width: 15rem; }
   .section-heading { margin-bottom: 2.6rem; }
   .practice-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .practice-card { min-height: 17rem; padding: 1.65rem; }

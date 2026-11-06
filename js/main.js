@@ -72,3 +72,128 @@ if (reviewQuote && reviewName && reviewDetail && reviewInitials && reviewIndex) 
     });
   });
 }
+
+const consultationForms = document.querySelectorAll("[data-consultation-form]");
+const consultationParams = new URLSearchParams(window.location.search);
+
+consultationForms.forEach((form) => {
+  const practiceField = form.querySelector('[data-field="practice"]');
+  const attorneyField = form.querySelector('[data-field="attorney"]');
+  const requestedPractice = consultationParams.get("practice");
+  const requestedAttorney = consultationParams.get("attorney");
+
+  if (practiceField instanceof HTMLSelectElement && requestedPractice) {
+    const matchingPractice = Array.from(practiceField.options).find((option) => option.value === requestedPractice);
+    if (matchingPractice) practiceField.value = matchingPractice.value;
+  }
+  if (attorneyField instanceof HTMLSelectElement && requestedAttorney) {
+    const matchingAttorney = Array.from(attorneyField.options).find((option) => option.value === requestedAttorney);
+    if (matchingAttorney) attorneyField.value = matchingAttorney.value;
+  }
+
+  const validateField = (field) => {
+    const value = field.value.trim();
+    let message = "";
+
+    if (field.required && !value) {
+      message = "This field is required.";
+    } else if (value && field.dataset.field === "name" && value.length < 2) {
+      message = "Please enter your full name.";
+    } else if (value && field.dataset.field === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      message = "Enter a valid email address.";
+    } else if (value && field.dataset.field === "phone") {
+      const digits = value.replace(/\D/g, "");
+      if (digits.length < 7 || digits.length > 15) message = "Enter a valid phone number.";
+    } else if (value && field.dataset.field === "date") {
+      const selectedDate = new Date(`${value}T00:00:00`);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      if (selectedDate < today) message = "Choose today or a future date.";
+    }
+
+    field.setAttribute("aria-invalid", String(Boolean(message)));
+    const errorId = field.getAttribute("aria-describedby");
+    const errorElement = errorId ? document.getElementById(errorId) : null;
+    if (errorElement) errorElement.textContent = message;
+    return !message;
+  };
+
+  form.querySelectorAll("[data-field]").forEach((field) => {
+    const eventName = field instanceof HTMLSelectElement ? "change" : "input";
+    field.addEventListener(eventName, () => {
+      if (field.getAttribute("aria-invalid") === "true") validateField(field);
+    });
+  });
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const fields = Array.from(form.querySelectorAll("[data-field]"));
+    const invalidFields = fields.filter((field) => !validateField(field));
+    const status = form.querySelector("[data-form-status]");
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    if (invalidFields.length) {
+      if (status) {
+        status.className = "form-status is-error";
+        status.textContent = "Please review the highlighted fields and try again.";
+      }
+      invalidFields[0].focus();
+      return;
+    }
+
+    const fullName = form.querySelector('[data-field="name"]').value.trim();
+    if (/YOUR_FORMSPREE_ID/i.test(form.action)) {
+      if (status) {
+        status.className = "form-status is-demo";
+        status.textContent = `Thanks, ${fullName}. Your details are ready, but this demo form has not sent them. Replace YOUR_FORMSPREE_ID in the form action with your Formspree form ID to enable email delivery.`;
+      }
+      return;
+    }
+
+    if (!(submitButton instanceof HTMLButtonElement)) {
+      throw new Error("Consultation form is missing its submit button.");
+    }
+
+    submitButton.disabled = true;
+    if (status) {
+      status.className = "form-status";
+      status.textContent = "Sending your request…";
+    }
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      if (!response.ok) {
+        if (status) {
+          status.className = "form-status is-error";
+          status.textContent = `We couldn’t send your request (HTTP ${response.status}). Please try again or call (202) 555-0148.`;
+        }
+        return;
+      }
+
+      form.reset();
+      form.querySelectorAll("[data-field]").forEach((field) => {
+        field.removeAttribute("aria-invalid");
+        const errorId = field.getAttribute("aria-describedby");
+        const errorElement = errorId ? document.getElementById(errorId) : null;
+        if (errorElement) errorElement.textContent = "";
+      });
+      if (status) {
+        status.className = "form-status is-success";
+        status.textContent = "Thank you. Your consultation request has been sent. Our team will be in touch shortly.";
+      }
+    } catch (error) {
+      console.error("Consultation request could not be sent.", error);
+      if (status) {
+        status.className = "form-status is-error";
+        status.textContent = "We couldn’t reach the form service. Please try again or call (202) 555-0148.";
+      }
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
+});

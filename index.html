@@ -89,7 +89,26 @@
       </div>
     </section>
 
-    <section class="final-cta" aria-labelledby="cta-title"><div class="container final-cta-inner reveal"><p class="eyebrow">THE FIRST CONVERSATION IS ON US</p><h2 id="cta-title">A clearer path can<br>start <em>today.</em></h2><p>Tell us what’s on your mind. We’ll listen, answer your questions, and help you decide what comes next.</p><a class="button button-gold" href="contact.html">Book a Free Consultation <span aria-hidden="true">→</span></a><span class="cta-seal" aria-hidden="true">K&amp;C<br><small>COUNSEL<br>ADVOCACY<br>TRUST</small></span></div></section>
+    <section class="consultation-section section-pad" id="consultation-form" aria-labelledby="home-consultation-title"><div class="container consultation-layout">
+      <div class="consultation-intro"><p class="eyebrow">A PRIVATE FIRST CONVERSATION</p><h2 id="home-consultation-title">Let’s find a<br><em>way forward.</em></h2><p>Tell us a little about what’s happening. A member of our team will be in touch to arrange your free initial consultation.</p><div class="consultation-promise"><span aria-hidden="true">✦</span><p><strong>Confidential from the start.</strong><br>Please avoid including sensitive details in this initial message.</p></div></div>
+      <form class="consultation-form" data-consultation-form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Free consultation request — Kingsford & Co. Law">
+        <div class="form-grid">
+          <div class="form-field"><label for="home-full-name">Full name <span aria-hidden="true">*</span></label><input id="home-full-name" name="full_name" type="text" autocomplete="name" required data-field="name" aria-describedby="home-full-name-error"><span class="field-error" id="home-full-name-error"></span></div>
+          <div class="form-field"><label for="home-email">Email address <span aria-hidden="true">*</span></label><input id="home-email" name="email" type="email" autocomplete="email" required data-field="email" aria-describedby="home-email-error"><span class="field-error" id="home-email-error"></span></div>
+          <div class="form-field"><label for="home-phone">Phone number <span aria-hidden="true">*</span></label><input id="home-phone" name="phone" type="tel" autocomplete="tel" required data-field="phone" aria-describedby="home-phone-error"><span class="field-error" id="home-phone-error"></span></div>
+          <div class="form-field"><label for="home-practice">Practice area <span aria-hidden="true">*</span></label><select id="home-practice" name="practice_area" required data-field="practice" aria-describedby="home-practice-error"><option value="">Select a practice area</option><option>Corporate</option><option>Family</option><option>Criminal Defense</option><option>Real Estate</option><option>Immigration</option><option>Personal Injury</option><option>Not sure yet</option></select><span class="field-error" id="home-practice-error"></span></div>
+          <div class="form-field"><label for="home-attorney">Preferred attorney</label><select id="home-attorney" name="preferred_attorney" data-field="attorney" aria-describedby="home-attorney-error"><option>No preference</option><option>Oliver Kingsford</option><option>Daniel Prescott</option><option>Elizabeth Bennett</option></select><span class="field-error" id="home-attorney-error"></span></div>
+          <div class="form-field"><label for="home-date">Preferred date <span class="optional-label">Optional</span></label><input id="home-date" name="preferred_date" type="date" data-field="date" aria-describedby="home-date-error"><span class="field-error" id="home-date-error"></span></div>
+          <div class="form-field form-field-wide"><label for="home-message">How can we help? <span aria-hidden="true">*</span></label><textarea id="home-message" name="message" rows="4" required data-field="message" aria-describedby="home-message-error"></textarea><span class="field-error" id="home-message-error"></span></div>
+        </div>
+        <button class="button button-gold form-submit" type="submit">Request a Free Consultation <span aria-hidden="true">→</span></button>
+        <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+        <p class="form-privacy">By submitting, you’re asking our team to contact you. Sending this form does not create an attorney-client relationship.</p>
+      </form>
+    </div></section>
+
+    <section class="final-cta" aria-labelledby="cta-title"><div class="container final-cta-inner reveal"><p class="eyebrow">THE FIRST CONVERSATION IS ON US</p><h2 id="cta-title">A clearer path can<br>start <em>today.</em></h2><p>Tell us what’s on your mind. We’ll listen, answer your questions, and help you decide what comes next.</p><a class="button button-gold" href="#consultation-form">Book a Free Consultation <span aria-hidden="true">→</span></a><span class="cta-seal" aria-hidden="true">K&amp;C<br><small>COUNSEL<br>ADVOCACY<br>TRUST</small></span></div></section>
   </main>
   <footer class="site-footer">
     <div class="container footer-grid">
