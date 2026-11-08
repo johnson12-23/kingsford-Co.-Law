@@ -90,14 +90,23 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.15; }
 .practice-card a { min-height: 2.75rem; display: inline-flex; align-items: center; gap: .45rem; color: var(--navy); font-size: .71rem; font-weight: 700; text-decoration: none; }
 .practice-detail-list { display: grid; gap: 1rem; margin-top: 2rem; }
 .practice-detail { scroll-margin-top: 6rem; padding: 1.3rem; border: 1px solid var(--line); background: var(--white); }
-.practice-detail h3 { margin-bottom: .65rem; color: var(--navy); font-size: clamp(1.45rem, 5vw, 2rem); }
+.practice-detail h2 { margin-bottom: .65rem; color: var(--navy); font-size: clamp(1.45rem, 5vw, 2rem); }
 .practice-detail-overview { max-width: 54rem; color: var(--muted); font-size: .88rem; }
 .practice-detail-grid { display: grid; gap: .7rem 1.5rem; margin-bottom: 1rem; }
-.practice-detail h4 { margin: .25rem 0 .45rem; color: var(--navy); font: 600 .75rem var(--sans); letter-spacing: .04em; }
+.practice-detail-grid h3, .practice-attorneys h3 { margin: .25rem 0 .45rem; color: var(--navy); font: 600 .75rem var(--sans); letter-spacing: .04em; }
 .practice-detail-grid p, .practice-detail-grid li { color: var(--muted); font-size: .78rem; line-height: 1.65; }
 .practice-detail-grid ul { margin: 0; padding-left: 1.1rem; }
+.practice-detail-grid ol { margin: 0 0 1rem; padding-left: 1.2rem; }
 .practice-detail-grid li + li { margin-top: .2rem; }
 .practice-detail .button { min-height: 2.9rem; }
+.practice-quicklinks { position: sticky; z-index: 8; top: 5rem; border-bottom: 1px solid var(--line); background: rgb(247 245 240 / 97%); backdrop-filter: blur(12px); }
+.practice-quicklinks-inner { display: flex; gap: .5rem; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: thin; }
+.practice-quicklinks a { min-height: 3.25rem; flex: 0 0 auto; display: inline-flex; align-items: center; padding-inline: .8rem; color: var(--navy); font-size: .73rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.practice-quicklinks a:hover, .practice-quicklinks a:focus-visible { color: #795a1d; }
+.practice-attorneys { display: flex; flex-wrap: wrap; align-items: baseline; gap: .45rem .8rem; margin: 1rem 0; }
+.practice-attorneys h3 { flex-basis: 100%; }
+.practice-attorneys a, .footer-practice-link { min-height: 2.75rem; display: inline-flex; align-items: center; color: var(--navy); font-size: .78rem; font-weight: 600; text-decoration: underline; text-underline-offset: .2em; }
+.footer-practice-link { color: var(--gold-light); }
 .why-section { position: relative; overflow: hidden; color: var(--white); background: var(--navy); }
 .why-grid { display: grid; gap: 2.5rem; }
 .why-copy { max-width: 33rem; }
