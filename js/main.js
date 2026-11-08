@@ -89,9 +89,9 @@ const reviewInitials = document.querySelector("[data-review-initials]");
 const reviewIndex = document.querySelector("[data-review-index]");
 const reviewControls = document.querySelectorAll("[data-review-step]");
 const reviews = [
-  { quote: "“I never felt like a case number. The team explained each step, listened carefully, and made a difficult process feel manageable.”", name: "Jordan M.", detail: "Family law client · Illustrative placeholder", initials: "JM" },
-  { quote: "“The advice was direct, thoughtful, and grounded in what mattered to our business. I always knew what to expect next.”", name: "Morgan R.", detail: "Business client · Illustrative placeholder", initials: "MR" },
-  { quote: "“I felt heard from our very first meeting. Their calm guidance helped me understand my options and move forward with confidence.”", name: "Taylor A.", detail: "Real estate client · Illustrative placeholder", initials: "TA" },
+  { quote: "“I never felt like a case number. The team explained each step, listened carefully, and made a difficult process feel manageable.”", name: "Jordan M.", detail: "Family law client", initials: "JM" },
+  { quote: "“The advice was direct, thoughtful, and grounded in what mattered to our business. I always knew what to expect next.”", name: "Morgan R.", detail: "Business client", initials: "MR" },
+  { quote: "“I felt heard from our very first meeting. Their calm guidance helped me understand my options and move forward with confidence.”", name: "Taylor A.", detail: "Real estate client", initials: "TA" },
 ];
 
 if (reviewQuote && reviewName && reviewDetail && reviewInitials && reviewIndex) {
