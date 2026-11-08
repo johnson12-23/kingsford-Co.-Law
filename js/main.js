@@ -178,13 +178,6 @@ consultationForms.forEach((form) => {
     }
 
     const fullName = form.querySelector('[data-field="name"]').value.trim();
-    if (/YOUR_FORMSPREE_ID/i.test(form.action)) {
-      if (status) {
-        status.className = "form-status is-demo";
-        status.textContent = `Thanks, ${fullName}. Your details are ready, but this demo form has not sent them. Replace YOUR_FORMSPREE_ID in the form action with your Formspree form ID to enable email delivery.`;
-      }
-      return;
-    }
 
     if (!(submitButton instanceof HTMLButtonElement)) {
       throw new Error("Consultation form is missing its submit button.");
@@ -220,7 +213,7 @@ consultationForms.forEach((form) => {
       });
       if (status) {
         status.className = "form-status is-success";
-        status.textContent = "Thank you. Your consultation request has been sent. Our team will be in touch shortly.";
+        status.textContent = `Congratulations, ${fullName}! Your consultation request was submitted successfully. Our team will be in touch shortly.`;
       }
     } catch (error) {
       console.error("Consultation request could not be sent.", error);
