@@ -47,7 +47,8 @@ if (menuToggle && navigation) {
   });
 
   navigation.addEventListener("click", (event) => {
-    if (event.target instanceof HTMLAnchorElement) {
+    const clickedLink = event.target instanceof Element ? event.target.closest("a") : null;
+    if (clickedLink && navigation.contains(clickedLink)) {
       menuToggle.setAttribute("aria-expanded", "false");
       menuToggle.setAttribute("aria-label", "Open navigation menu");
       navigation.classList.remove("is-open");
