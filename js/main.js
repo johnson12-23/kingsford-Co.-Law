@@ -86,9 +86,11 @@ const reviewInitials = document.querySelector("[data-review-initials]");
 const reviewIndex = document.querySelector("[data-review-index]");
 const reviewControls = document.querySelectorAll("[data-review-step]");
 const reviews = [
-  { quote: "“I never felt like a case number. The team explained each step, listened carefully, and made a difficult process feel manageable.”", name: "Jordan M.", detail: "Family law client", initials: "JM" },
-  { quote: "“The advice was direct, thoughtful, and grounded in what mattered to our business. I always knew what to expect next.”", name: "Morgan R.", detail: "Business client", initials: "MR" },
-  { quote: "“I felt heard from our very first meeting. Their calm guidance helped me understand my options and move forward with confidence.”", name: "Taylor A.", detail: "Real estate client", initials: "TA" },
+  { quote: "“James mapped out the entity options for my consulting firm and explained the tax and liability questions I should take to my accountant. His checklist made it easy to keep the formation documents moving.”", name: "Maya Chen", detail: "Business formation · James Kingsford", initials: "MC" },
+  { quote: "“Daniel outlined the hearing sequence and the records that could help explain my housing and work situation. After each development, he called back and talked through what it meant before we made the next decision.”", name: "Priya Nair", detail: "Bail hearing · Daniel Okafor", initials: "PN" },
+  { quote: "“Elizabeth helped me organize the school and care details that mattered to our parenting schedule. She explained the options before mediation and checked that I understood the proposed terms.”", name: "Gabriela Ruiz", detail: "Child custody · Elizabeth Hart", initials: "GR" },
+  { quote: "“Marcus walked me through the hearing schedule and answered my questions without rushing. I knew which documents to bring and what decisions might come up at the next court date.”", name: "Evan Brooks", detail: "Criminal defense · Marcus Bennett", initials: "EB" },
+  { quote: "“Sophia broke the filing into manageable steps and checked that we understood which records needed certified translations. Her updates helped us stay organized while we waited for the next notice.”", name: "Nadine Haddad", detail: "Family-based visa · Sophia Laurent", initials: "NH" },
 ];
 
 if (reviewQuote && reviewName && reviewDetail && reviewInitials && reviewIndex) {
