@@ -279,8 +279,6 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.15; }
 .brand-light { color: var(--white); }
 .footer-brand > p { margin-top: .9rem; color: rgb(255 255 255 / 58%); }
 .footer-bottom { display: flex; flex-direction: column; gap: .8rem; padding-top: 1.2rem; border-top: 1px solid rgb(255 255 255 / 14%); color: rgb(255 255 255 / 52%); font-size: .7rem; }
-.footer-bottom > div { display: flex; gap: 1.2rem; }
-.footer-bottom a { min-height: 2.75rem; display: inline-flex; align-items: center; text-decoration: none; }
 .back-to-top { position: fixed; z-index: 8; right: 1rem; bottom: 1rem; width: 2.9rem; height: 2.9rem; display: grid; place-items: center; color: var(--navy); background: var(--gold); font-size: 1.2rem; text-decoration: none; opacity: 0; pointer-events: none; transition: opacity .2s ease; }
 .back-to-top.is-visible { opacity: 1; pointer-events: auto; }
 :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }

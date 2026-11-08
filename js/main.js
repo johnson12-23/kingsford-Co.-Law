@@ -63,10 +63,6 @@ if (backToTop) {
   updateBackToTop();
 }
 
-document.querySelectorAll("[data-current-year]").forEach((element) => {
-  element.textContent = String(new Date().getFullYear());
-});
-
 const revealElements = document.querySelectorAll(".reveal");
 if ("IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver((entries, observer) => {
