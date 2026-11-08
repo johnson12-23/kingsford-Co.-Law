@@ -198,6 +198,8 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.15; }
 .profile-role { margin-bottom: .8rem; color: var(--gold-light); font-size: .78rem; font-weight: 600; letter-spacing: .04em; }
 .profile-role span { margin-inline: .35rem; }
 .profile-summary { max-width: 38rem; margin-bottom: 1.25rem; color: rgb(255 255 255 / 72%); font-size: .9rem; }
+.profile-disclosure { max-width: 42rem; margin: 0 0 1.25rem; padding: .55rem .7rem; border-left: 2px solid var(--gold); background: rgb(255 255 255 / 7%); color: rgb(255 255 255 / 82%); font-size: .72rem; line-height: 1.55; }
+.section-heading .profile-disclosure { background: var(--white); color: #536171; }
 .profile-specialties { display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: 1.3rem; }
 .profile-specialties span { padding: .35rem .7rem; border: 1px solid rgb(255 255 255 / 26%); color: rgb(255 255 255 / 84%); font-size: .67rem; }
 .profile-intro > .button { max-width: 100%; }
