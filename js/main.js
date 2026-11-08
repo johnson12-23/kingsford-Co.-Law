@@ -3,6 +3,42 @@ const navigation = document.querySelector(".primary-navigation");
 document.documentElement.classList.add("js");
 
 if (menuToggle && navigation) {
+  const practiceDropdown = navigation.querySelector(".nav-dropdown");
+  const practiceToggle = navigation.querySelector(".nav-dropdown-toggle");
+  const desktopNavigation = window.matchMedia("(min-width: 64rem)");
+
+  const setPracticeDropdownOpen = (isOpen) => {
+    if (!practiceDropdown || !practiceToggle) return;
+    practiceDropdown.classList.toggle("is-open", isOpen);
+    practiceToggle.setAttribute("aria-expanded", String(isOpen));
+  };
+
+  if (practiceDropdown && practiceToggle) {
+    practiceToggle.addEventListener("click", () => {
+      if (!desktopNavigation.matches) {
+        setPracticeDropdownOpen(practiceToggle.getAttribute("aria-expanded") !== "true");
+      }
+    });
+
+    practiceDropdown.addEventListener("mouseenter", () => {
+      if (desktopNavigation.matches) setPracticeDropdownOpen(true);
+    });
+    practiceDropdown.addEventListener("mouseleave", () => {
+      if (desktopNavigation.matches) setPracticeDropdownOpen(false);
+    });
+    practiceDropdown.addEventListener("focusin", () => {
+      if (desktopNavigation.matches) setPracticeDropdownOpen(true);
+    });
+    practiceDropdown.addEventListener("focusout", (event) => {
+      if (desktopNavigation.matches && !practiceDropdown.contains(event.relatedTarget)) {
+        setPracticeDropdownOpen(false);
+      }
+    });
+    desktopNavigation.addEventListener("change", (event) => {
+      if (!event.matches) setPracticeDropdownOpen(false);
+    });
+  }
+
   menuToggle.addEventListener("click", () => {
     const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
     menuToggle.setAttribute("aria-expanded", String(!isOpen));
@@ -15,6 +51,7 @@ if (menuToggle && navigation) {
       menuToggle.setAttribute("aria-expanded", "false");
       menuToggle.setAttribute("aria-label", "Open navigation menu");
       navigation.classList.remove("is-open");
+      setPracticeDropdownOpen(false);
     }
   });
 }
