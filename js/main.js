@@ -199,7 +199,7 @@ consultationForms.forEach((form) => {
       if (!response.ok) {
         if (status) {
           status.className = "form-status is-error";
-          status.textContent = `We couldn’t send your request (HTTP ${response.status}). Please try again or call (202) 555-0148.`;
+          status.textContent = `We couldn’t send your request (HTTP ${response.status}). Please try again or call (985) 777-3042.`;
         }
         return;
       }
@@ -219,7 +219,7 @@ consultationForms.forEach((form) => {
       console.error("Consultation request could not be sent.", error);
       if (status) {
         status.className = "form-status is-error";
-        status.textContent = "We couldn’t reach the form service. Please try again or call (202) 555-0148.";
+        status.textContent = "We couldn’t reach the form service. Please try again or call (985) 777-3042.";
       }
     } finally {
       submitButton.disabled = false;
